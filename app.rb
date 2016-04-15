@@ -36,7 +36,7 @@ new_list.add("link", "http://ruby-doc.org")
 # ----------------------------
 # new_list.add("image", "http://ruby-doc.org") # Throws InvalidItemType error (WORKS!)
 # new_list.delete(9) # Throws an IndexExceedsListSize error (WORKS!)
-# new_list.add("todo", "Hack some portals", priority: "super high") # throws an InvalidPriorityValue error
+# new_list.add("todo", "Hack some portals", priority: "super high") # throws an InvalidPriorityValue error (WORKS!)
 
 # DISPLAY UNTITLED LIST
 # ---------------------
@@ -44,4 +44,4 @@ new_list.all
 
 # DEMO FILTER BY ITEM TYPE
 # ------------------------
-# new_list.filter("event")
+new_list.filter("event")

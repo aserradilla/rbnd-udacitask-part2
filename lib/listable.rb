@@ -20,10 +20,17 @@ module Listable
         # Formats the priority
         def format_priority(priority)
                 # If its a todo item
-                value = " ⇧" if priority == "high"
-                value = " ⇨" if priority == "medium"
-                value = " ⇩" if priority == "low"
+                value = " ⇧".colorize(:red) if priority == "high"
+                value = " ⇨".colorize(:yellow) if priority == "medium"
+                value = " ⇩".colorize(:green) if priority == "low"
                 value = "" if !priority
+                return value
+        end
+
+        def format_type(type)
+                value = type.ljust(15).colorize(:light_red) if type == "TODO"
+                value = type.ljust(15).colorize(:blue) if type == "Link"
+                value = type.ljust(15).colorize(:green) if type == "Event"
                 return value
         end
 end
