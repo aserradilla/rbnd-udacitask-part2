@@ -1,13 +1,22 @@
 # What you added to Udacitask 2.0
 # -------------------------------------------------------
 1. What is the gem of your choice and how did you use it?
+        I chose terminal-table to format the ascii table you print in the terminal
 2. Describe the 2 features you added to the project.
-  a) Feature 1...
-  b) Feature 2...
+  a) Feature 1:
+        I included multiple item deletion in udacilist.rb
+  b) Feature 2:
+        I included a new type list.
 
 # REFLECTIONS
 # -------------------------------------------------------
 1. How long did you spend working on this project?
+        Aproximately 4-5 hours.
 2. What was the most rewarding challenge you conquered?
+        When i was able to format everything included in app.rb
 3. What two additional features did you build? Why?
+        I added multiple deletion. The user is able to delete the items he sees at first, then i convert that indexes
+        into proper array indexes.
+        A new type, "list", which represents a typical list of things to buy for example
 4. Where do you still have room to grow?
+        Synthesize my code more, i believe it is way too long.
