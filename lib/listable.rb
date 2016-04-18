@@ -27,11 +27,24 @@ module Listable
                 return value
         end
 
-        # Formats the type 
+        # Formats the type
         def format_type(type)
                 value = type.ljust(15).colorize(:light_red) if type == "TODO"
                 value = type.ljust(15).colorize(:blue) if type == "Link"
                 value = type.ljust(15).colorize(:green) if type == "Event"
+                value = type.ljust(15).colorize(:yellow) if type == "List"
+                return value
+        end
+
+        #Format elements
+        def format_elements(elements)
+                value = ""
+                elements.each_with_index do |element, position|
+                        value += "#{element}"
+                        if element != @elements[@elements.length-1]
+                                value += ", "
+                        end
+                end
                 return value
         end
 end

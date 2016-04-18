@@ -8,6 +8,6 @@ module UdaciListErrors
         class InvalidPriorityValue < StandardError
         end
 
-        class  InexistentItemType < StandardError
+        class InvalidFilteringType < StandardError
         end
 end

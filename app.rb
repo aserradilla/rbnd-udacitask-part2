@@ -8,6 +8,7 @@ require_relative "lib/udacilist"
 require_relative "lib/todo"
 require_relative "lib/event"
 require_relative "lib/link"
+require_relative "lib/list"
 
 list = UdaciList.new(title: "Julia's Stuff")
 list.add("todo", "Buy more cat food", due: "2016-02-03", priority: "low")
@@ -17,7 +18,7 @@ list.add("event", "Birthday Party", start_date: "2016-05-08")
 list.add("event", "Vacation", start_date: "2016-05-28", end_date: "2016-05-31")
 list.add("link", "https://github.com", site_name: "GitHub Homepage")
 list.all
-list.delete(3)
+list.delete([1,2,3], false) # Tests if you can delete multiple items
 list.all
 
 # SHOULD CREATE AN UNTITLED LIST AND ADD ITEMS TO IT
@@ -45,3 +46,8 @@ new_list.all
 # DEMO FILTER BY ITEM TYPE
 # ------------------------
 new_list.filter("event")
+
+# Tests the new item type, a list
+# --------------------------------
+new_list.add("list", "Shopping list", elements: ["Fish", "Meat", "Fruit"])
+new_list.all
