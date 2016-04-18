@@ -1,8 +1,14 @@
- class UdaciList
+require 'terminal-table'
+
+class UdaciList
          attr_reader :title, :items
 
          def initialize(options={})
-                 @title = options[:title]
+                 if options[:title]
+                         @title = options[:title]
+                 else
+                         @title = "Untitled list"
+                 end
                  @items = []
          end
 
@@ -20,19 +26,35 @@
          end
 
          def all
-                 if @title
-                         puts "-" * @title.length
-                         puts @title
-                         puts "-" * @title.length
-                 end
+                 rows = []
                  @items.each_with_index do |item, position|
-                         puts "#{position + 1}) #{item.details}"
+                         rows << [position + 1, item.details]
                  end
+                 table = Terminal::Table.new
+                 table.title = "#{@title}"
+                 table.rows = rows
+                 puts table
          end
 
          # Filters the list by item type
          def filter(type)
-
+                 type = type.downcase
+                 check_type(type)
+                 items = @items
+                 typeclass = TodoItem if type == "todo"
+                 typeclass = LinkItem if type == "link"
+                 typeclass = EventItem if type == "event"
+                 filtered_items = items.select do |item|
+                         item.instance_of? typeclass
+                 end
+                 rows = []
+                 filtered_items.each_with_index do |item, position|
+                         rows << [position + 1, item.details]
+                 end
+                 table = Terminal::Table.new
+                 table.title = "#{@title} filtered by #{type}"
+                 table.rows = rows
+                 puts table
          end
 
          private

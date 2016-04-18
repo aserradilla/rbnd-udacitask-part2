@@ -27,6 +27,7 @@ module Listable
                 return value
         end
 
+        # Formats the type 
         def format_type(type)
                 value = type.ljust(15).colorize(:light_red) if type == "TODO"
                 value = type.ljust(15).colorize(:blue) if type == "Link"
